@@ -139,6 +139,11 @@ If you are looking for stable versions, there are some packages available at htt
 
 To access Wok, please, connect your browser to https://localhost:8001.
 
+## Running in Docker
+
+    docker build -t wok:latest .
+    docker run -d -p 8001:8001 wok:latest
+
 # Contributing to Wok Project
 
 There are a lof of ways to contribute to the Wok Project:
