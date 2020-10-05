@@ -66,7 +66,7 @@ class PushServer(object):
     def set_socket_file(self):
         if not os.path.isdir(BASE_DIRECTORY):
             try:
-                os.mkdir(BASE_DIRECTORY)
+                os.makedirs(BASE_DIRECTORY)
             except OSError:
                 raise RuntimeError(
                     f'PushServer base UNIX socket dir {BASE_DIRECTORY} \
