@@ -31,9 +31,10 @@ if [ ! -e "$WOKCERT_PEM" ] || [ ! -e "$WOKKEY_PEM" ]; then
         -subj "/C=US/CN=wok/O=kimchi-project.org" >/dev/null 2>&1 || :
 fi
 
-systemd_exists=$(type /bin/systemctl > /dev/null 2>&1; echo $?)
-if test $systemd_exists = "0"; then
+if test -f "/bin/systemctl"; then
     /bin/systemctl enable wokd > /dev/null 2>&1
     /bin/systemctl daemon-reload > /dev/null 2>&1
     /bin/systemctl start wokd > /dev/null 2>&1
+else
+    echo "systemd not found" >&2
 fi
